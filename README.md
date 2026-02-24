@@ -3,206 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby Girl’s Digital Shower</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Ocean+Delight&display=swap" rel="stylesheet">
+<title>Lilly Rose | Celestial Shower</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* Global Styles */
-body {
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
-  overflow-x: hidden;
-  position: relative;
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to bottom,#fff8f2,#f3f8ff);
+overflow-x:hidden;
+color:#7a5c5c;
+scroll-behavior:smooth;
 }
 
-/* Headings */
-h1, h2, h3 {
-  font-family: 'Ocean Delight', cursive;
-  text-align: center;
-  color: #d46a7e;
+/* ===== INTRO DOOR ===== */
+#intro{
+position:fixed;
+inset:0;
+background:radial-gradient(circle,#fff3e6,#eaf4ff);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+transition:1.2s;
 }
 
-/* Hero Section */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 0 20px;
+.door{
+width:120px;
+height:200px;
+background:linear-gradient(#f8d9b5,#e8b98d);
+border-radius:60px 60px 10px 10px;
+box-shadow:0 0 40px rgba(255,215,0,.5);
+animation:glow 2s infinite alternate;
 }
 
-.hero h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
+@keyframes glow{
+from{box-shadow:0 0 20px gold;}
+to{box-shadow:0 0 60px gold;}
 }
 
-.hero p {
-  font-size: 1.5em;
-  color: #666;
-  text-align: center;
-  max-width: 600px;
+#intro button{
+margin-top:30px;
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:gold;
+cursor:pointer;
 }
 
-/* Floating Animations */
-.floating {
-  position: absolute;
-  pointer-events: none;
-  animation: float linear infinite;
+/* ===== TITLE ===== */
+header{
+padding:120px 20px;
+text-align:center;
+position:relative;
 }
 
-.cloud { width: 120px; opacity: 0.6; animation-duration: 30s; }
-.star { width: 20px; opacity: 0.8; animation-duration: 25s; }
-.angel { width: 80px; opacity: 1; animation-duration: 35s; }
-.toy { width: 40px; opacity: 0.9; animation-duration: 28s; }
-
-@keyframes float {
-  0% { transform: translateY(100vh) translateX(0); }
-  100% { transform: translateY(-150px) translateX(50px); }
+h1{
+font-family:'Great Vibes',cursive;
+font-size:70px;
+color:#d4a017;
+text-shadow:0 0 30px rgba(255,215,0,.8);
+margin:0;
 }
 
-/* Buttons */
-.btn {
-  background-color: #f9c0d6;
-  border: none;
-  padding: 15px 30px;
-  margin: 10px;
-  font-size: 1.2em;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: 0.3s;
-  color: white;
-  font-family: 'Ocean Delight', cursive;
+.subtitle{
+letter-spacing:4px;
+color:#9aa7c9;
 }
 
-.btn:hover { background-color: #d46a7e; }
-
-/* Popups */
-.popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff0f5;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  z-index: 1000;
-  max-width: 90%;
+/* ===== CLOUDS ===== */
+.cloud{
+position:absolute;
+background:white;
+border-radius:100px;
+opacity:.6;
+animation:float 100s linear infinite;
 }
 
-.popup h2 { margin-top: 0; color: #d46a7e; }
-.popup input, .popup select {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-.popup .close-btn {
-  background: #d46a7e;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  float: right;
-  margin-top: 10px;
+@keyframes float{
+from{transform:translateX(-400px);}
+to{transform:translateX(140%);}
 }
 
-/* Music Button */
-#music-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #f9c0d6;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  font-family: 'Ocean Delight', cursive;
-  z-index: 1001;
+/* ===== SECTIONS ===== */
+.section{
+padding:80px 20px;
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
+}
+
+.section.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.card{
+background:white;
+padding:35px;
+margin:auto;
+max-width:650px;
+border-radius:35px;
+box-shadow:0 20px 60px rgba(0,0,0,.05);
+}
+
+/* ===== BUTTONS ===== */
+button{
+background:linear-gradient(45deg,#ffd700,#f8c200);
+border:none;
+padding:12px 28px;
+border-radius:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px gold;
+}
+
+/* ===== GOLD PARTICLES ===== */
+.particle{
+position:fixed;
+width:3px;height:3px;
+background:gold;
+border-radius:50%;
+animation:twinkle 4s infinite;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:0;}
+50%{opacity:1;}
+}
+
+/* ===== CURSOR SPARKLES ===== */
+.spark{
+position:fixed;
+font-size:14px;
+color:gold;
+pointer-events:none;
+animation:rise 1s forwards;
+}
+
+@keyframes rise{
+from{opacity:1;transform:translateY(0);}
+to{opacity:0;transform:translateY(-20px);}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+h1{font-size:50px;}
+.section{padding:60px 15px;}
 }
 </style>
 </head>
 <body>
 
-<!-- Hero Section -->
-<div class="hero">
-  <h1>Welcome to Baby Girl's Digital Shower!</h1>
-  <p>Celebrate with us the arrival of our precious little angel!</p>
-  <button class="btn" onclick="openPopup('rsvpPopup')">RSVP Here</button>
-  <button class="btn" onclick="openPopup('giftPopup')">Gift Registry</button>
+<div id="intro">
+<div class="door"></div>
+<button onclick="enter()">✨ Open the Celestial Door ✨</button>
 </div>
 
-<!-- Floating Elements -->
-<img src="https://i.ibb.co/0JpRr3V/cloud.png" class="cloud floating" style="top:20%; left:10%;" />
-<img src="https://i.ibb.co/0JpRr3V/cloud.png" class="cloud floating" style="top:60%; left:70%;" />
-<img src="https://i.ibb.co/FXjKy8m/star.png" class="star floating" style="top:10%; left:50%;" />
-<img src="https://i.ibb.co/FXjKy8m/star.png" class="star floating" style="top:80%; left:20%;" />
-<img src="https://i.ibb.co/2W3v0Fz/angel-baby.png" class="angel floating" style="top:50%; left:40%;" />
-<img src="https://i.ibb.co/vqJxv7F/toy.png" class="toy floating" style="top:70%; left:60%;" />
+<!-- Floating Clouds -->
+<div class="cloud" style="top:150px;width:250px;height:90px;"></div>
+<div class="cloud" style="top:350px;width:300px;height:110px;animation-duration:140s;"></div>
 
-<!-- Welcome Popup -->
-<div class="popup" id="welcomePopup">
-  <h2>Welcome!</h2>
-  <p>We’re thrilled you’re here to celebrate our baby girl!</p>
-  <button class="close-btn" onclick="closePopup('welcomePopup')">Close</button>
+<header>
+<h1>Lilly Rose</h1>
+<p class="subtitle">A Golden Angel Is On The Way</p>
+</header>
+
+<div class="section">
+<div class="card">
+<h2 style="font-family:'Great Vibes';color:#d4a017;">Receive a Blessing</h2>
+<button onclick="bless()">✨ Open Blessing ✨</button>
+<p id="blessText"></p>
+</div>
 </div>
 
-<!-- RSVP Popup -->
-<div class="popup" id="rsvpPopup">
-  <h2>RSVP</h2>
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <select required>
-      <option value="">Will you attend?</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select>
-    <button class="btn" type="submit">Submit</button>
-  </form>
-  <button class="close-btn" onclick="closePopup('rsvpPopup')">Close</button>
+<div class="section">
+<div class="card">
+<h2 style="font-family:'Great Vibes';color:#d4a017;">Light a Golden Candle</h2>
+<button onclick="candle()">🕯 Light Candle</button>
+<p id="candleText"></p>
+</div>
 </div>
 
-<!-- Gift Registry Popup -->
-<div class="popup" id="giftPopup">
-  <h2>Gift Registry</h2>
-  <p>Click below to see our registry and send a gift!</p>
-  <a href="#" target="_blank" class="btn">View Gifts</a>
-  <button class="close-btn" onclick="closePopup('giftPopup')">Close</button>
-</div>
-
-<!-- Music Button -->
-<button id="music-btn" onclick="toggleMusic()">🔊 Music</button>
-<audio id="baby-music" autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+<footer style="text-align:center;padding:60px;color:#aaa;">
+Made with celestial love ✨
+</footer>
 
 <script>
-// Show Welcome Popup on Load
-window.onload = () => { openPopup('welcomePopup'); };
-
-// Popup Functions
-function openPopup(id) { document.getElementById(id).style.display = 'block'; }
-function closePopup(id) { document.getElementById(id).style.display = 'none'; }
-
-// Music Toggle
-const music = document.getElementById('baby-music');
-let playing = true;
-function toggleMusic() {
-  if(playing){ music.pause(); playing=false; }
-  else { music.play(); playing=true; }
+function enter(){
+document.getElementById("intro").style.opacity="0";
+setTimeout(()=>document.getElementById("intro").style.display="none",1200);
 }
+
+/* Scroll reveal */
+const sections=document.querySelectorAll('.section');
+window.addEventListener('scroll',()=>{
+sections.forEach(sec=>{
+const rect=sec.getBoundingClientRect();
+if(rect.top<window.innerHeight-100){
+sec.classList.add('visible');
+}
+});
+});
+
+/* Blessings */
+const blessings=[
+"May angels guard her every step.",
+"She shines brighter than the stars.",
+"A golden gift from heaven.",
+"Her life will sparkle with joy.",
+"Wrapped in eternal love."
+];
+
+function bless(){
+document.getElementById("blessText").innerText=
+blessings[Math.floor(Math.random()*blessings.length)];
+}
+
+function candle(){
+document.getElementById("candleText").innerText=
+"Your golden candle glows for Lilly ✨";
+}
+
+/* GOLD PARTICLES BACKGROUND */
+for(let i=0;i<120;i++){
+let p=document.createElement("div");
+p.className="particle";
+p.style.top=Math.random()*100+"vh";
+p.style.left=Math.random()*100+"vw";
+p.style.animationDelay=Math.random()*5+"s";
+document.body.appendChild(p);
+}
+
+/* CURSOR SPARKLE TRAIL */
+document.addEventListener("mousemove",function(e){
+let s=document.createElement("div");
+s.className="spark";
+s.innerText="✨";
+s.style.left=e.pageX+"px";
+s.style.top=e.pageY+"px";
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),1000);
+});
 </script>
 
 </body>
